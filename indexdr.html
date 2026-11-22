@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Limpeza | Higienização e Limpeza Profissional</title>
+    <style>
+        :root {
+            --primary: #0c4a6e;
+            --accent: #0284c7;
+            --accent-light: #e0f2fe;
+            --whatsapp: #22c55e;
+            --whatsapp-hover: #16a34a;
+            --bg-light: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --white: #ffffff;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        html { scroll-behavior: smooth; }
+        body { color: var(--text-main); background-color: var(--white); line-height: 1.6; }
+        header {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.4rem; font-weight: 800; color: var(--primary); text-decoration: none; letter-spacing: -0.5px; }
+        .logo span { color: var(--accent); }
+        .nav-cta {
+            background-color: var(--whatsapp);
+            color: var(--white);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .nav-cta:hover { background-color: var(--whatsapp-hover); }
+        .hero {
+            background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 100%);
+            color: var(--white);
+            padding: 5rem 1.5rem;
+            text-align: center;
+        }
+        .hero-content { max-width: 780px; margin: 0 auto; }
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            color: #bae6fd;
+            border: 1px solid rgba(186, 230, 253, 0.35);
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 { font-size: 2.5rem; line-height: 1.2; font-weight: 800; margin-bottom: 1.25rem; }
+        .hero p { font-size: 1.15rem; color: #e0f2fe; margin-bottom: 2.25rem; max-width: 620px; margin-inline: auto; }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--whatsapp);
+            color: var(--white);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.45);
+            transition: transform 0.2s, background 0.2s;
+        }
+        .btn-primary:hover { background-color: var(--whatsapp-hover); transform: translateY(-2px); }
+        section { padding: 4.5rem 1.5rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .section-header { text-align: center; max-width: 650px; margin: 0 auto 3.5rem auto; }
+        .section-header h2 { font-size: 2rem; color: var(--primary); font-weight: 800; margin-bottom: 0.75rem; }
+        .section-header p { color: var(--text-muted); font-size: 1.05rem; }
+        .bg-light { background-color: var(--bg-light); }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.75rem; }
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.08); }
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-light);
+            color: var(--accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .card h3 { font-size: 1.25rem; color: var(--primary); margin-bottom: 0.75rem; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; }
+        .diff-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+        .check-circle {
+            background: #dcfce7;
+            color: #16a34a;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .cta-box { background: var(--primary); color: var(--white); border-radius: 18px; padding: 3.5rem 2rem; text-align: center; }
+        .cta-box h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .cta-box p { color: #bae6fd; max-width: 550px; margin: 0 auto 2rem auto; font-size: 1.05rem; }
+        footer { background: #082f49; color: #bae6fd; text-align: center; padding: 2.5rem 1.5rem; font-size: 0.9rem; }
+        footer strong { color: var(--white); }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            background-color: var(--whatsapp);
+            color: var(--white);
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            text-decoration: none;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+            z-index: 999;
+            transition: transform 0.2s;
+        }
+        .whatsapp-float:hover { transform: scale(1.08); }
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 1.95rem; }
+            .hero { padding: 3.5rem 1.25rem; }
+            section { padding: 3.25rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Dr. <span>Limpeza</span></a>
+            <a href="https://wa.me/5511999999999?text=Olá!%20Vim%20pelo%20site%20da%20Dr.%20Limpeza%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="nav-cta">Orçamento no WhatsApp</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">Higienização Profissional • Atendimento em Domicílio</span>
+            <h1>Seu ambiente renovado, livre de ácaros, manchas e odores</h1>
+            <p>Cuidamos da limpeza profunda com produtos profissionais seguros, equipamentos modernos e atenção total aos detalhes.</p>
+            <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20com%20a%20Dr.%20Limpeza." target="_blank" class="btn-primary">
+                Pedir Orçamento Agora
+            </a>
+        </div>
+    </section>
+
+    <section id="servicos" class="bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nossos Serviços</h2>
+                <p>Soluções completas de limpeza e higienização para deixar tudo limpo, cheiroso e protegido.</p>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon">🛋️</div>
+                    <h3>Higienização de Estofados</h3>
+                    <p>Limpeza profunda de sofás, poltronas e cadeiras, removendo sujeiras acumuladas, manchas e micro-organismos.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛏️</div>
+                    <h3>Colchões e Tapetes</h3>
+                    <p>Eliminação de ácaros, bactérias e odores para garantir mais saúde, conforto e bem-estar para toda a sua família.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">✨</div>
+                    <h3>Limpeza Especializada</h3>
+                    <p>Atendimento sob medida para residências, escritórios e interiores automotivos com secagem rápida e acabamento impecável.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="diferenciais">
+        <div class="container">
+            <div class="section-header">
+                <h2>Por que escolher a Dr. Limpeza?</h2>
+                <p>Compromisso com a qualidade em cada atendimento realizado.</p>
+            </div>
+            <div class="grid-3">
+                <div class="diff-item">
+                    <div class="check-circle">✓</div>
+                    <div>
+                        <h3>Produtos Seguros</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Utilizamos produtos homologados, seguros para crianças, pets e tecidos delicados.</p>
+                    </div>
+                </div>
+                <div class="diff-item">
+                    <div class="check-circle">✓</div>
+                    <div>
+                        <h3>Orçamento Rápido e Justo</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Envie uma foto pelo WhatsApp e receba o valor exato em poucos minutos, sem surpresas.</p>
+                    </div>
+                </div>
+                <div class="diff-item">
+                    <div class="check-circle">✓</div>
+                    <div>
+                        <h3>Pontualidade e Capricho</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Atendimento no horário combinado com cuidado extremo pelo seu patrimônio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Quer deixar tudo limpo e renovado?</h2>
+                <p>Chame agora no WhatsApp, mande uma foto do que precisa higienizar e receba seu orçamento sem compromisso.</p>
+                <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20um%20orçamento%20da%20Dr.%20Limpeza." target="_blank" class="btn-primary">
+                    Chamar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>Dr. Limpeza</strong> &copy; 2026 — Todos os direitos reservados.</p>
+        <p style="margin-top: 0.4rem; font-size: 0.8rem;">São Paulo - SP | Higienização e Limpeza Profissional</p>
+    </footer>
+
+    <a href="https://wa.me/5511999999999?text=Olá!%20Vim%20pelo%20site%20da%20Dr.%20Limpeza." target="_blank" class="whatsapp-float" title="Falar no WhatsApp">
+        💬
+    </a>
+</body>
+</html>
